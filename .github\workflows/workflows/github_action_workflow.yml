@@ -1,12 +1,10 @@
-name: Build
+name: "QTestSEproject"
 on:
-  push:
-    branches:
-      - flutterflow
-  pull_request:
-    types: [opened, synchronize, reopened]
+  workflow_dispath:
+
+
 jobs:
-  sonarcloud:
+  DemoSonarCloudSCan:
     name: SonarCloud
     runs-on: ubuntu-latest
     steps:
@@ -18,3 +16,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          with:
+            args: >
+            Dsonar.organization=NorahMT
+            Dsonar.projectKey=QTestSEproject
+
